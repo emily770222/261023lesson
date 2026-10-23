@@ -1,0 +1,5 @@
+{
+  "threshold": 0,
+  "reporters": ["console"],
+  "ignore": ["**/node_modules/**", "**/.git/**", "**/data/**", "**/reports/**", "**/__pycache__/**", "**/.pytest_cache/**"]
+}

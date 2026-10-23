@@ -1,0 +1,1 @@
+node_modules\n.pytest_cache\n.ruff_cache\ndata\nreports\n*.py\n

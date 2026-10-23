@@ -1,0 +1,36 @@
+{
+  "name": "261023lesson",
+  "version": "1.0.0",
+  "description": "本專案分析 [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset)，建立可重現的資料治理、EDA、特徵工程、模型訓練、解釋性與報告流程。總規劃見 [Issue #3](https://github.com/emily770222/261023lesson/issues/3)。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:eslint": "eslint . --ext .js,.mjs,.cjs",
+    "check:jscpd": "jscpd .",
+    "check:knip": "knip",
+    "check:all": "npm run lint:eslint && npm run check:jscpd && npm run check:knip",
+    "check:all:report": "npm run lint:eslint --silent -- --format json -o reports/static-check/eslint.json 2>&1 || true && npx jscpd . --reporters json --output reports/static-check/jscpd 2>&1 || true && npx knip --reporter json > reports/static-check/knip.json 2>&1 || true && echo DONE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emily770222/261023lesson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/emily770222/261023lesson/issues"
+  },
+  "homepage": "https://github.com/emily770222/261023lesson#readme",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-plugin-sonarjs": "^0.25.1",
+    "jscpd": "^5.4.2",
+    "knip": "^6.42.1"
+  }
+}
