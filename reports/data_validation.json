@@ -1,0 +1,84 @@
+{
+  "path": "data/raw/ai4i2020.csv",
+  "sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "sha256_expected": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "sha256_file": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "checksum_verified": true,
+  "checksum_ok": true,
+  "checksum_file_ok": true,
+  "rows": 10000,
+  "columns": 14,
+  "column_names": [
+    "UDI",
+    "Product ID",
+    "Type",
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]",
+    "Machine failure",
+    "TWF",
+    "HDF",
+    "PWF",
+    "OSF",
+    "RNF"
+  ],
+  "missing_values": 0,
+  "duplicate_rows": 0,
+  "duplicate_udi": 0,
+  "duplicate_product_id": 0,
+  "type_counts": {
+    "L": 6000,
+    "M": 2997,
+    "H": 1003
+  },
+  "failure_count": 339,
+  "failure_rate": 0.0339,
+  "mode_counts": {
+    "TWF": 46,
+    "HDF": 115,
+    "PWF": 95,
+    "OSF": 98,
+    "RNF": 19
+  },
+  "numeric_ranges": {
+    "Air temperature [K]": {
+      "min": 295.3,
+      "max": 304.5,
+      "mean": 300.00493
+    },
+    "Process temperature [K]": {
+      "min": 305.7,
+      "max": 313.8,
+      "mean": 310.00556
+    },
+    "Rotational speed [rpm]": {
+      "min": 1168.0,
+      "max": 2886.0,
+      "mean": 1538.7761
+    },
+    "Torque [Nm]": {
+      "min": 3.8,
+      "max": 76.6,
+      "mean": 39.98691
+    },
+    "Tool wear [min]": {
+      "min": 0.0,
+      "max": 253.0,
+      "mean": 107.951
+    }
+  },
+  "consistency": {
+    "failure_without_mode": 9,
+    "mode_without_failure": 18,
+    "multiple_mode_rows": 24
+  },
+  "warnings": [
+    "9 筆 Machine failure=1 但五種故障模式皆為 0",
+    "18 筆故障模式=1 但 Machine failure=0",
+    "24 筆同時有多種故障模式"
+  ],
+  "errors": [],
+  "valid": true
+}

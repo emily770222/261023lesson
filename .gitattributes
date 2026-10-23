@@ -1,0 +1,5 @@
+* text=auto
+
+# Keep the canonical UCI bytes (UTF-8 BOM + CRLF) so the pinned SHA-256
+# remains valid on every platform.
+data/raw/ai4i2020.csv -text

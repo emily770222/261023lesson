@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai4i-predictive-maintenance"
+version = "0.1.0"
+description = "AI4I 2020 predictive maintenance analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+ai4i-validate = "ai4i.validate_data:main"
+ai4i-download = "ai4i.download:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
