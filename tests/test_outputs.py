@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 from iris_study import run_experiment
 
-def test_experiment_writes_consistent_data_metrics_and_figures(tmp_path):
+def test_experiment_writes_consistent_data_metrics_and_figures(tmp_path, monkeypatch):
+    monkeypatch.setenv('MPLBACKEND','module://unavailable_notebook_backend')
     summary=run_experiment(tmp_path, max_epochs=80)
     data=pd.read_csv(tmp_path/'data/iris.csv')
     predictions=pd.read_csv(tmp_path/'results/predictions.csv')

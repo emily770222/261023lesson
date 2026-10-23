@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+.test-tmp*/
+.venv/
+*.pyc
+reports/preview/

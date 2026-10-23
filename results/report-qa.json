@@ -1,0 +1,12 @@
+{
+  "pdf_pages": 6,
+  "checks": [
+    "All six pages rendered and visually reviewed",
+    "Embedded Traditional Chinese font; extracted title matches source",
+    "Report accuracy, macro F1 and PCA variance match metrics.json",
+    "PCA axes PC1/PC2/PC3 visible",
+    "No clipped or overlapping text found"
+  ],
+  "tests": "10 passed in isolated environment",
+  "reference": "results/tdd/final-tests.txt"
+}

@@ -1,0 +1,33 @@
+{
+  "source": "sklearn.datasets.load_iris (bundled corrected Iris copy)",
+  "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html",
+  "original_reference": "Fisher (1936), UCI Iris, https://doi.org/10.24432/C56C76",
+  "obtained_at_utc": "2026-10-23T02:04:46.082499+00:00",
+  "scikit_learn_version": "1.6.1",
+  "sha256": "303efae5815d2795b4db642f0a1fc87af88a649b7635debc6d56e4b3a550c768",
+  "features": {
+    "sepal_length_cm": {
+      "unit": "cm",
+      "dtype": "float"
+    },
+    "sepal_width_cm": {
+      "unit": "cm",
+      "dtype": "float"
+    },
+    "petal_length_cm": {
+      "unit": "cm",
+      "dtype": "float"
+    },
+    "petal_width_cm": {
+      "unit": "cm",
+      "dtype": "float"
+    }
+  },
+  "target_mapping": {
+    "0": "setosa",
+    "1": "versicolor",
+    "2": "virginica"
+  },
+  "sample_id": "zero-based source row; not a predictive feature",
+  "note": "Use the bundled corrected copy consistently; do not silently mix alternate UCI file versions."
+}

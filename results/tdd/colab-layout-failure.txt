@@ -1,0 +1,63 @@
+...F...F..                                                               [100%]
+=================================== FAILURES ===================================
+________________________ test_scaler_fits_training_only ________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_scaler_fits_training_only0')
+
+    def test_scaler_fits_training_only(tmp_path):
+        df = load_data(tmp_path / 'iris.csv')
+        p = split_data(df)
+        s = fit_scaler(df, p['train'])
+        np.testing.assert_allclose(s.mean_, df.iloc[p['train']][FEATURES].mean())
+        altered = df.copy()
+        altered.loc[p['test'], FEATURES] += 10000
+        altered.loc[p['validation'], FEATURES] -= 10000
+>       np.testing.assert_array_equal(s.mean_, fit_scaler(altered,p['train']).mean_)
+
+tests/test_data.py:47:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/usr/local/lib/python3.13/dist-packages/numpy/_utils/__init__.py:85: in wrapper
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (<built-in function eq>, array([5.87604167, 3.06354167, 3.79479167, 1.20729167]), array([5.87604167, 3.06354167, 3.79479167, 1.20729167]))
+kwds = {'err_msg': '', 'header': 'Arrays are not equal', 'strict': False, 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^
+E           AssertionError:
+E           Arrays are not equal
+E
+E           Mismatched elements: 2 / 4 (50%)
+E           Max absolute difference among violations: 8.8817842e-16
+E           Max relative difference among violations: 1.51152505e-16
+E            ACTUAL: array([5.876042, 3.063542, 3.794792, 1.207292])
+E            DESIRED: array([5.876042, 3.063542, 3.794792, 1.207292])
+
+/usr/lib/python3.13/contextlib.py:85: AssertionError
+_______________ test_test_data_cannot_influence_model_selection ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_test_data_cannot_influenc0')
+
+    def test_test_data_cannot_influence_model_selection(tmp_path):
+        df=load_data(tmp_path/'iris.csv'); parts=split_data(df)
+        a=fit_model(df,parts,max_epochs=40,patience=10)
+        altered=df.copy()
+        altered.loc[parts['test'],FEATURES] += 999
+        altered.loc[parts['test'],'target'] = 0
+        b=fit_model(altered,parts,max_epochs=40,patience=10)
+>       assert a['history'] == b['history']
+E       AssertionError: assert [{'epoch': 1,...75, ...}, ...] == [{'epoch': 1,...75, ...}, ...]
+E
+E         At index 3 diff: {'epoch': 4, 'train_loss': 0.5562446413980869, 'validation_loss': 0.5822152856303617, 'train_accuracy': 0.8854166666666666, 'validation_accuracy': 0.7916666666666666} != {'epoch': 4, 'train_loss': 0.5562446413980869, 'validation_loss': 0.5822152856303616, 'train_accuracy': 0.8854166666666666, 'validation_accuracy': 0.7916666666666666}
+E         Use -v to get more diff
+
+tests/test_model.py:26: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_data.py::test_scaler_fits_training_only - AssertionError:
+FAILED tests/test_model.py::test_test_data_cannot_influence_model_selection
+2 failed, 8 passed in 8.33s
